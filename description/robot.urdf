@@ -35,14 +35,14 @@
       <visual>
           <origin xyz="0 0 0"/>
           <geometry>
-              <cylinder length="0.08" radius="0.125"/>
+              <box size="0.17 0.14 0.145"/>
           </geometry>
           <material name="orange"/>
       </visual>
       <collision>
           <origin xyz="0 0 0"/>
           <geometry>
-              <cylinder length="0.08" radius="0.125"/>
+              <box size="0.17 0.14 0.145"/>
           </geometry>
       </collision>
   </link>
