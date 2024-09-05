@@ -34,7 +34,7 @@ def generate_launch_description():
 
     motor = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('robot_demo'),'launch','motor_ros_agent_launch'
+                    get_package_share_directory('robot_demo'),'launch','motor_ros_agent_launch.py'
                 )])
     )
 
