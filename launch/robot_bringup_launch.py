@@ -24,17 +24,18 @@ def generate_launch_description():
 
     # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
-    node_robot_state_publisher = Node(
+    robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
         parameters=[params]
     )
 
-    node_ominibot_hv_publisher = Node(
-        package='ominibot_hv',
-        executable='robot_control',
-        parameters=[]
+
+    motor = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory('robot_demo'),'launch','motor_ros_agent_launch'
+                )])
     )
 
 
@@ -52,7 +53,7 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if false'),
 
-        node_robot_state_publisher,
-        node_ominibot_hv_publisher,
+        robot_state_publisher,
+        motor,
         lidar,
     ])
